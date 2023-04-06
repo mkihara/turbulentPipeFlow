@@ -27,16 +27,16 @@ define(bottomQuad, ($1b $2b $3b $4b))
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-scale 0.001;
+// scale 0.001;
 
 // Inner square side half
-define(s, 0.35)
+define(s, 0.6)
 
 // Inner square side curvature
-define(sc, 0.4)
+define(sc, 0.72)
 
 // cylinder radius
-define(r, 0.7)
+define(r, 1.0)
 
 // Height of cylinder
 define(z, 20.0)
@@ -48,13 +48,16 @@ define(Zb, 0)
 define(Zt, calc(Zb + z))
 
 // Number of cells at inner square
-define(Ns, 20)
+define(Ns, 70)
 
 // Number of cells between inner square and circle
-define(Ni, 10)
+define(Ni, 20)
 
 // Number of cells in the cylinder height
-define(Nz, 100)
+define(Nz, 200)
+
+// Cell size ratio between inner square and circle
+define(Ri, 0.5)
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -186,25 +189,25 @@ blocks
     hex2D(s0, r0, r3, s3)
     innerCircle
     (Ni Ns Nz)
-    simpleGrading (1 1 1)
+    simpleGrading (Ri 1 1)
     
     //block2
     hex2D(s3, r3, r2, s2)
     innerCircle
     (Ni Ns Nz)
-    simpleGrading (1 1 1)
+    simpleGrading (Ri 1 1)
     
     //block3
     hex2D(s2, r2, r1, s1)
     innerCircle
     (Ni Ns Nz)
-    simpleGrading (1 1 1)
+    simpleGrading (Ri 1 1)
     
     //block4
     hex2D(s1, r1, r0, s0)
     innerCircle
     (Ni Ns Nz)
-    simpleGrading (1 1 1)
+    simpleGrading (Ri 1 1)
 );
 
 edges
