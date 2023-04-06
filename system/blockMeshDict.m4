@@ -54,7 +54,7 @@ define(Ns, 70)
 define(Ni, 20)
 
 // Number of cells in the cylinder height
-define(Nz, 200)
+define(Nz, 400)
 
 // Cell size ratio between inner square and circle
 define(Ri, 0.5)
