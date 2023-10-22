@@ -17,37 +17,29 @@ FoamFile
 
 ddtSchemes
 {
-    default backward;
-}
-
-d2dt2Schemes
-{
+    default         backward;
 }
 
 gradSchemes
 {
-    default         Gauss linear;
-
-    grad(U)         cellLimited Gauss linear 1;
+    default         Gauss cubic;
 }
 
 divSchemes
 {
     default         none;
-
-    div(phi,U)      Gauss LUST unlimitedGrad(U);
-
-    div((nuEff*dev2(T(grad(U))))) Gauss linear;
+    div(phi,U)      Gauss cubic;
+    div((nuEff*dev2(T(grad(U))))) Gauss cubic;
 }
 
 laplacianSchemes
 {
-    default         Gauss linear corrected;
+    default         Gauss cubic corrected;
 }
 
 interpolationSchemes
 {
-    default         linear;
+    default         cubic;
 }
 
 snGradSchemes

@@ -10,29 +10,16 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    location    "constant";
-    object      turbulenceProperties;
+    object      fvOptions;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-simulationType  LES;
-
-LES
+momentumSource
 {
-    LESModel            sigma;
-    turbulence          on;
-    printCoeffs         on;
-    delta               cubeRootVol;
-
-    sigmaCoeffs
-    {
-        Csigma      1.5;
-    }
-
-    cubeRootVolCoeffs
-    {
-        deltaCoeff      1;
-    }
+    type            meanVelocityForce;
+    selectionMode   all;
+    fields          (U);
+    Ubar            (0 0 2.65258);
 }
 
 // ************************************************************************* //

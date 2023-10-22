@@ -14,9 +14,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-libs            (OpenFOAM fieldFunctionObjects);
-
 application     pisoFoam;
+// application     pimpleFoam;
 
 startFrom       latestTime;
 
@@ -24,15 +23,19 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         0.1;
+// endTime         20.0;
+endTime         1.0;
 
-deltaT          1e-4;
+// deltaT          0.01;
+deltaT          2e-5;
 
-writeControl    timeStep;
+writeControl    runTime;
+// writeControl    adjustableRunTime;
 
-writeInterval   1000;
+// writeInterval   0.1;
+writeInterval   1e-3;
 
-purgeWrite      0;
+purgeWrite      10;
 
 writeFormat     binary;
 
@@ -46,13 +49,15 @@ timePrecision   6;
 
 runTimeModifiable true;
 
+adjustTimeStep yes;
 
-functions
-{
-    // #include "samples"
-    // #include "streamLines"
-    // #include "forceCoeffs"
-}
+maxCo 0.5;
+
+maxDeltaT 0.05;
+
+// functions
+// {
+// }
 
 
 // ************************************************************************* //

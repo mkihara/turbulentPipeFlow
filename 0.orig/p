@@ -20,25 +20,11 @@ internalField   uniform 0;
 
 boundaryField
 {
-    inlet
-    {
-        type            zeroGradient;
-    }
+    #includeEtc "caseDicts/setConstraintTypes"
 
-    outlet
+    wall
     {
-        type            fixedValue;
-        value           uniform 0;
-    }
-
-    side
-    {
-        type            zeroGradient;
-    }
-
-    "proc.*"
-    {
-        type            processor;
+        type    zeroGradient;
     }
 }
 

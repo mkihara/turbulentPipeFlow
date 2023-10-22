@@ -5,8 +5,8 @@ cd "${0%/*}" || exit                                # Run from this directory
 
 m4 system/blockMeshDict.m4 > system/blockMeshDict
 runApplication blockMesh
-runApplication decomposePar
-restore0Dir -processor
-runParallel renumberMesh -overwrite
-runParallel applyBoundaryLayer -Cbl 3
-runParallel checkMesh -constant
+runApplication renumberMesh -overwrite
+restore0Dir
+runApplication checkMesh -constant
+
+#------------------------------------------------------------------------------

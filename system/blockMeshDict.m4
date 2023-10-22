@@ -27,7 +27,8 @@ define(bottomQuad, ($1b $2b $3b $4b))
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-// scale 0.001;
+define(radius, 0.002)
+scale radius;
 
 // Inner square side half
 define(s, 0.6)
@@ -39,7 +40,8 @@ define(sc, 0.72)
 define(r, 1.0)
 
 // Height of cylinder
-define(z, 20.0)
+define(z, 10.0)
+// define(z, 20.0)
 
 // Base z
 define(Zb, 0)
@@ -54,7 +56,8 @@ define(Ns, 70)
 define(Ni, 20)
 
 // Number of cells in the cylinder height
-define(Nz, 400)
+define(Nz, 200)
+// define(Nz, 400)
 
 // Cell size ratio between inner square and circle
 define(Ri, 0.5)
@@ -251,7 +254,11 @@ boundary
     
     inlet
     {
-        type patch;
+        // type patch;
+        type            cyclic;
+        neighbourPatch  outlet;
+        transform       translational;
+        separationVector (0 0 calc(radius*(Zt - Zb)));
         faces
         (
             bottomQuad(s3, s0, s1, s2)
@@ -264,7 +271,11 @@ boundary
     
     outlet
     {
-        type patch;
+        // type patch;
+        type            cyclic;
+        neighbourPatch  inlet;
+        transform       translational;
+        separationVector (0 0 calc(radius*(Zb - Zt)));
         faces
         (
             topQuad(s3, s0, s1, s2)

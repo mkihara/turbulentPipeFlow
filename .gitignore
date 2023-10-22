@@ -1,3 +1,10 @@
+# OpenFOAM
+blockMeshDict
+log.*
+/processor*/
+/constant/polyMesh/
+/[0-9]/
+
 # Prerequisites
 *.d
 
