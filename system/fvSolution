@@ -31,27 +31,27 @@ solvers
         relTol          0;
     }
 
-    U
-    {
-        solver          PBiCGStab;
-        preconditioner  DILU;
-        tolerance       1e-6;
-        relTol          0;
-    }
-
     // U
     // {
     //     solver          PBiCGStab;
     //     preconditioner  DILU;
     //     tolerance       1e-6;
-    //     relTol          0.1;
-    // }
-
-    // UFinal
-    // {
-    //     $U;
     //     relTol          0;
     // }
+
+    U
+    {
+        solver          PBiCGStab;
+        preconditioner  DILU;
+        tolerance       1e-6;
+        relTol          0.1;
+    }
+
+    UFinal
+    {
+        $U;
+        relTol          0;
+    }
 }
 
 PISO

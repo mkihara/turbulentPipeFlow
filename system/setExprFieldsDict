@@ -44,9 +44,9 @@ expressions
             "b = 5.0"
             "Gamma = - a * pow(yPlus,4) / (1 + b*yPlus)"
             "uPlus = exp(Gamma)*uLamPlus + exp(pow(Gamma,-1))*uTurbPlus"
-            "sqrt_uu = uTau * sqrt(1 + 1.5*yPlus*exp(-yPlus/12))"
+            "sqrt_uu = uTau * sqrt(1 + 1.4*yPlus*exp(-yPlus/12))"
             "sqrt_ww = uTau * sqrt(1 + 0.1*yPlus*exp(-yPlus/26))"
-            "fluctuation = (rand(12345) - 0.5) * 3"
+            "fluctuation = (rand(12345) - 0.5) * 1"
         );
 
         // fieldMask
